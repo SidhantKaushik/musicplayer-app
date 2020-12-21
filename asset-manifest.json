@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/musicplayer-app/static/css/main.be26ce5b.chunk.css",
+    "main.css": "/musicplayer-app/static/css/main.a5e22978.chunk.css",
     "main.js": "/musicplayer-app/static/js/main.c1a2162a.chunk.js",
     "main.js.map": "/musicplayer-app/static/js/main.c1a2162a.chunk.js.map",
     "runtime-main.js": "/musicplayer-app/static/js/runtime-main.839d81c3.js",
@@ -10,7 +10,7 @@
     "static/js/3.653dd6c4.chunk.js": "/musicplayer-app/static/js/3.653dd6c4.chunk.js",
     "static/js/3.653dd6c4.chunk.js.map": "/musicplayer-app/static/js/3.653dd6c4.chunk.js.map",
     "index.html": "/musicplayer-app/index.html",
-    "static/css/main.be26ce5b.chunk.css.map": "/musicplayer-app/static/css/main.be26ce5b.chunk.css.map",
+    "static/css/main.a5e22978.chunk.css.map": "/musicplayer-app/static/css/main.a5e22978.chunk.css.map",
     "static/js/2.199925e5.chunk.js.LICENSE.txt": "/musicplayer-app/static/js/2.199925e5.chunk.js.LICENSE.txt",
     "static/media/gm.c548d46a.mp3": "/musicplayer-app/static/media/gm.c548d46a.mp3",
     "static/media/iwonder.e2694bb1.mp3": "/musicplayer-app/static/media/iwonder.e2694bb1.mp3"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.839d81c3.js",
     "static/js/2.199925e5.chunk.js",
-    "static/css/main.be26ce5b.chunk.css",
+    "static/css/main.a5e22978.chunk.css",
     "static/js/main.c1a2162a.chunk.js"
   ]
 }
