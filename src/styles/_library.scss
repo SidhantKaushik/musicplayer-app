@@ -5,6 +5,7 @@
   width: 20rem;
   height: 100%;
   background: rgb(233, 219, 219);
+  pointer-events: none;
   box-shadow: 2px 2px 50px rgb(187, 187, 187);
   overflow: scroll;
   transition: all 0.5s ease;
@@ -61,4 +62,5 @@
 .active-library {
   transform: translateX(0%);
   opacity: 1;
+  pointer-events: all;
 }
