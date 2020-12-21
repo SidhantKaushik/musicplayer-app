@@ -17,23 +17,62 @@ function App() {
   const timeUpdateHandler = (e: any) => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
-    setSongInfo({ ...songInfo, currentTime: current, duration: duration });
+    //calculate percentage
+    setSongInfo({
+      ...songInfo,
+      currentTime: current,
+      duration: duration,
+    });
   };
   const autoPlayHandler = () => {
     if (isPlaying) {
       audioRef.current.play();
     }
   };
+  const skipTrackHandler = (direction: any) => {
+    let currentIndex = songs.findIndex(
+      (song: any) => song.id === currentSong.id
+    );
+    if (direction === "back") {
+      if (currentIndex !== 0) {
+        setCurrentSong(songs[currentIndex - 1]);
+      }
+    } else {
+      if (currentIndex !== songs.length - 1)
+        setCurrentSong(songs[currentIndex + 1]);
+    }
+  };
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
+    animationPercentage: 0,
   });
   const [libraryStatus, setLibraryStatus] = useState(false);
+  const [color, setColor] = useState(false);
+  const colorSwitcher = () => {
+    setColor(!color);
+    if (color === false) {
+      {
+        document.body.style.backgroundColor = "rgb(27, 27, 27)";
+      }
+    } else {
+      document.body.style.backgroundColor = "rgb(239, 239, 253)";
+
+      console.log(document.getElementById("dark")?.style.color);
+    }
+  };
   return (
-    <div className="App">
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+    <div className="App" id={color ? "dark" : ""}>
+      <Nav
+        color={color}
+        setColor={setColor}
+        libraryStatus={libraryStatus}
+        setLibraryStatus={setLibraryStatus}
+        colorSwitcher={colorSwitcher}
+      />
       <Song currentSong={currentSong} isPlaying={isPlaying} />
       <Player
+        skipTrackHandler={skipTrackHandler}
         songs={songs}
         setSongInfo={setSongInfo}
         songInfo={songInfo}
@@ -55,6 +94,7 @@ function App() {
         onLoadedData={autoPlayHandler}
         onTimeUpdate={timeUpdateHandler}
         onLoadedMetadata={timeUpdateHandler}
+        onEnded={() => skipTrackHandler("skip-forward")}
         ref={audioRef}
         src={currentSong.audio}
       ></audio>

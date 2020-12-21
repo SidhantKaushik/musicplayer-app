@@ -14,6 +14,7 @@ const Player = ({
   audioRef,
   setSongInfo,
   songInfo,
+  skipTrackHandler,
   songs,
   setCurrentSong,
 }: any) => {
@@ -39,31 +40,33 @@ const Player = ({
     );
   };
 
-  const skipTrackHandler = (direction: any) => {
-    let currentIndex = songs.findIndex(
-      (song: any) => song.id === currentSong.id
-    );
-    if (direction === "back") {
-      if (currentIndex !== 0) {
-        setCurrentSong(songs[currentIndex - 1]);
-      }
-    } else {
-      if (currentIndex !== songs.length - 1)
-        setCurrentSong(songs[currentIndex + 1]);
-    }
+  const trackAnim = {
+    transform: `translateX(${songInfo.animationPercentage}%)`,
   };
-
+  const animationPercentage = (songInfo.currentTime / songInfo.duration) * 100;
   return (
     <div className="player">
       <div className="time-control">
         <p>{getTime(songInfo.currentTime)}</p>
-        <input
-          min={0}
-          max={songInfo.duration || 0}
-          value={songInfo.currentTime!}
-          type="range"
-          onChange={dragHandler}
-        />
+        <div
+          style={{
+            background: `linear-gradient(to right, ${currentSong.color[0]},${currentSong.color[1]})`,
+          }}
+          className="track"
+        >
+          <input
+            min={0}
+            max={songInfo.duration || 0}
+            value={songInfo.currentTime!}
+            type="range"
+            onChange={dragHandler}
+          />
+
+          <div
+            style={{ transform: `translateX(${animationPercentage}%)` }}
+            className="animate-track"
+          ></div>
+        </div>
         <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">

@@ -1,8 +1,13 @@
 nav {
   min-height: 10vh;
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  .theTwo {
+    button {
+      margin-left: 2rem;
+    }
+  }
   button {
     background: transparent;
     border: none;
