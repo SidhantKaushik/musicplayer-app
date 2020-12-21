@@ -62,7 +62,10 @@ function App() {
     }
   };
   return (
-    <div className="App" id={color ? "dark" : ""}>
+    <div
+      className={`App ${libraryStatus ? "library-active" : ""}`}
+      id={color ? "dark" : ""}
+    >
       <Nav
         color={color}
         setColor={setColor}

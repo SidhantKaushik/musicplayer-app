@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 1s ease;
 }
 body {
   background-color: rgb(239, 239, 253);
   font-family: "Lato", sans-serif;
-  transition: all 1s ease;
 }
 .App {
   h4 {
@@ -31,7 +31,6 @@ h4 {
 #dark {
   .library {
     background: rgb(70, 65, 65);
-    transition: all 1s ease;
   }
   transition: all 1s ease;
   color: white;
@@ -49,6 +48,12 @@ h4 {
     }
   }
 }
+@media screen and (min-width: 768px) {
+  .library-active {
+    margin-left: 30%;
+  }
+}
+
 @import "./song";
 @import "./player";
 @import "./library";
